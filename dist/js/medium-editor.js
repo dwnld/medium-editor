@@ -6521,6 +6521,10 @@ MediumEditor.extensions = {};
             isEmpty = /^(\s+|<br\/?>)?$/i,
             isHeader = /h\d/i;
 
+        if (event.defaultPrevented) {
+            return;
+        }
+
         if (MediumEditor.util.isKey(event, [MediumEditor.util.keyCode.BACKSPACE, MediumEditor.util.keyCode.ENTER]) &&
                 // has a preceeding sibling
                 node.previousElementSibling &&
