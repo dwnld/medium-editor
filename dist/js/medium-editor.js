@@ -2744,6 +2744,10 @@ MediumEditor.extensions = {};
                     // Detecting click in the contenteditables
                     this.attachToEachElement('click', this.handleClick);
                     break;
+                case 'editableMousedown':
+                    // Detecting mouse down in the contenteditables
+                    this.attachToEachElement('mousedown', this.handleMousedown);
+                    break;
                 case 'editableBlur':
                     // Detecting blur in the contenteditables
                     this.attachToEachElement('blur', this.handleBlur);
@@ -2948,6 +2952,10 @@ MediumEditor.extensions = {};
 
         handleClick: function (event) {
             this.triggerCustomEvent('editableClick', event, event.currentTarget);
+        },
+
+        handleMousedown: function (event) {
+            this.triggerCustomEvent('editableMousedown', event, event.currentTarget);
         },
 
         handleBlur: function (event) {
